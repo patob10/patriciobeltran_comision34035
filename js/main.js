@@ -5,9 +5,9 @@ alert("Bienvenido, por favor pulse enter para comenzar a utilizar la calculadora
 let operacion = 0;
 //inicio del condicional
 while (operacion !== '1' && operacion !== '2' && operacion !== '3' && operacion !== '4' ) {
-    option = prompt("Ingrese opción deseada: 1- Sumar /  2- Restar / 3- Multiplicar / 4- Dividir");
+    operacion = prompt("Ingrese opción deseada: 1- Sumar /  2- Restar / 3- Multiplicar / 4- Dividir");
     
-    if (option === '1') {
+    if (operacion === '1') {
         var valor1 = prompt("Ingrese el primer valor");
         var valor2 = prompt("Ingrese el segundo valor");
         //Funcion sumar
@@ -19,7 +19,7 @@ while (operacion !== '1' && operacion !== '2' && operacion !== '3' && operacion 
         let suma = sumar(valor1, valor2);
         alert("La suma es: " + suma);
 
-    }else if (option === '2') {
+    }else if (operacion === '2') {
         let valor1 = prompt("Ingrese el primer valor");
         let valor2 = prompt("Ingrese el segundo valor");
 
@@ -31,7 +31,7 @@ while (operacion !== '1' && operacion !== '2' && operacion !== '3' && operacion 
         let resta = restar(valor1, valor2);
         alert("La resta es: " + resta);
     
-    }else if (option === '3') {
+    }else if (operacion === '3') {
         let valor1 = prompt("Ingrese el primer valor");
         let valor2 = prompt("Ingrese el segundo valor");
 
@@ -43,7 +43,7 @@ while (operacion !== '1' && operacion !== '2' && operacion !== '3' && operacion 
         let multi = multiplicar(valor1, valor2);
         alert("La resta es: " + multi);
         
-    }else if (option === '4') {
+    }else if (operacion === '4') {
         let valor1 = prompt("Ingrese el primer valor");
         let valor2 = prompt("Ingrese el segundo valor");
         //funcion dividir
