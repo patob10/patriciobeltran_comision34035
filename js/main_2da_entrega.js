@@ -2,32 +2,6 @@
 alert("Bienvenido a PeliculasYa")
 
 
-class Peliculas {
-    constructor(titulo, id, precio, stock) {
-        this.titulo = titulo;
-        this.id = id;
-        this.precio = precio;
-        this.stock = stock;
-    }
-}
-
-const pelicula1 = new Peliculas("Mision Imposible 1", 1, 500, 10);
-const pelicula2 = new Peliculas("Top Gun Maverick", 2, 2000, 5);
-const pelicula3 = new Peliculas("Avengers", 3, 1200, 20); 
-
-const ListaPeliculas = [pelicula1, pelicula2, pelicula3];
-
-function buscarpelicula(){
-    let buscar = prompt("Ingrese el id de la pelicula");
-    const buscado = ListaPeliculas.find(Peliculas => Peliculas.id == buscar); 
-    // alert("La pelicula es: " + buscado);
-    console.log("La pelicula es: " + buscado.titulo);
-    console.log("Quedan: " + buscado.stock + "peliculas");
-    alert("La pelicula cuesta: " + buscado.precio);
-
-}
-
-
 class Clientes {
     constructor(nombre, apellido, dni, telefono , pagar) {
         this.nombre = nombre;
@@ -44,25 +18,52 @@ class Clientes {
 const clientes = [];
 
 
+class Peliculas {
+    constructor(titulo, id, precio, stock) {
+        this.titulo = titulo;
+        this.id = id;
+        this.precio = precio;
+        this.stock = stock;
+    }
+}
+
+const pelicula1 = new Peliculas("Mision Imposible 1", 1, 500, 10);
+const pelicula2 = new Peliculas("Top Gun Maverick", 2, 2000, 5);
+const pelicula3 = new Peliculas("Avengers", 3, 1200, 20); 
+
+const ListaPeliculas = [pelicula1, pelicula2, pelicula3];
+
 function menu(){
-    let opcion = 0;
-while (opcion !== 1 && opcion !== 2 && opcion!== 3) {
-    opcion = parseInt(prompt("Ingrese opción deseada: 1- Dar de alta un cliente /  2- Buscar un cliente / 3- Modificar Saldo "));
+    let opcion = 1;
+while (opcion !== 0 ) {
+    opcion = parseInt(prompt("Ingrese opción deseada:\n \n1- DAR DE ALTA UN CLIENTE   \n2- BUSCAR UN CLIENTE POR DNI  \n3- BUSCAR SALDO  \n4- BUSCAR PELICULA  \n5- BUSCAR SALDO \n\n 6- SALIR "));
     
 switch (opcion) {
     case 1:
         altaCliente();
+        opcion=1;
         break;
     case 2:
         buscardni();
+        opcion=1;
         break;
     case 3:
         buscarsaldo();
+        opcion=1;
         break;
     case 4:
-        sumarsaldo();
+        buscarpelicula();
+        opcion=1;
         break;
-}
+    case 5:
+        sumarsaldo();
+        opcion=1;
+        break;
+    case 6:
+        salir();
+        opcion = 0;
+        break;
+    }
 }
 }
 
@@ -77,6 +78,7 @@ function altaCliente(){
     let pagar = 0;
     const cliente = new Clientes(nombre, apellido, dni, telefono, pagar);
     clientes.push(cliente);  
+    menu();
 }
 
 function buscardni() {
@@ -89,6 +91,7 @@ function buscardni() {
         alert("El cliente encontrado es: " + cliente.nombre);
         
     }
+    menu();
 }
 function buscarsaldo() {
     let dni = prompt("Ingrese el DNI del cliente a buscar: ");
@@ -99,6 +102,7 @@ function buscarsaldo() {
     }else{
         alert("El cliente no tiene saldo deudor")
     }
+    menu();
 }
 
 
@@ -112,8 +116,20 @@ function sumarsaldo() {
         }
     }
     console.log(cliente)
+    menu();
+}
+
+function buscarpelicula(){
+    let buscar = prompt("Ingrese el id de la pelicula");
+    const buscado = ListaPeliculas.find(Peliculas => Peliculas.id == buscar); 
+    // alert("La pelicula es: " + buscado);
+    // console.log("La pelicula es: " + buscado.titulo);
+    // console.log("Quedan: " + buscado.stock + "peliculas");
+    alert("La pelicula seleccionada es: "+ buscado.titulo + "\nQuedan disponibles: "+buscado.stock + "unidades" + "\nLa pelicula seleccionada cuesta: " +buscado.precio);
+    menu();
 }
 
 
-
-
+function salir() {
+    alert("Gracias por utilizar el sistema de gestion de PeliculasYa");
+}
