@@ -107,14 +107,17 @@ function sumarsaldo() {
     let cliente =  ingresardni();
     let nuevosaldo = parseInt(prompt("Ingrese nuevo saldo"));
     for (let Clientes of clientes) {
-        if(Clientes.dni == cliente.dni) {
+        if(cliente === undefined) {
+            alert("El cliente que busca no existe en nuestra base de datos, por favor ingrese un nuevo DNI: ");
+        }else if(clientes === []){
+            alert("No existen clientes en la base de datos");
+        }else if ( Clientes.dni == cliente.dni) {
             Clientes.sumarsaldo(nuevosaldo);
         }
     }
     console.log(cliente)
     menu();
 }
-
 
 function buscarpelicula(){
     let buscar = prompt("Ingrese el id de la pelicula");
