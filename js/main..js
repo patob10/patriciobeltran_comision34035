@@ -36,7 +36,7 @@ const ListaPeliculas = [pelicula1, pelicula2, pelicula3];
 function menu(){
     let opcion = 1;
 while (opcion !== 0 ) {
-    opcion = parseInt(prompt("Ingrese opción deseada:\n \n1- DAR DE ALTA UN CLIENTE   \n2- BUSCAR UN CLIENTE POR DNI  \n3- BUSCAR SALDO  \n4- BUSCAR PELICULA  \n5- BUSCAR SALDO \n\n 6- SALIR "));
+    opcion = parseInt(prompt("Ingrese opción deseada:\n \n1- DAR DE ALTA UN CLIENTE   \n2- BUSCAR UN CLIENTE POR DNI  \n3- BUSCAR SALDO  \n4- BUSCAR PELICULA  \n5- SUMAR SALDO \n\n 6- SALIR "));
     
 switch (opcion) {
     case 1:
@@ -82,8 +82,7 @@ function altaCliente(){
 }
 
 function buscardni() {
-    let dni = prompt("Ingrese el DNI del cliente a buscar: ");
-    let cliente = clientes.find(cliente => cliente.dni === dni);
+    let cliente =  ingresardni();
     
     if(cliente == null){
         console.log("Cliente no encontrado");
@@ -94,9 +93,7 @@ function buscardni() {
     menu();
 }
 function buscarsaldo() {
-    let dni = prompt("Ingrese el DNI del cliente a buscar: ");
-    let cliente = clientes.find(cliente => cliente.dni === dni);
-
+    let cliente =  ingresardni();
     if(cliente.pagar != 0){
         alert("El cliente tiene un importe pendiente de abonar:  " + cliente.pagar);
     }else{
@@ -107,11 +104,10 @@ function buscarsaldo() {
 
 
 function sumarsaldo() {
-    let dni = prompt("Ingrese el DNI del cliente a buscar: ");
-    let cliente = clientes.find(cliente => cliente.dni === dni);
+    let cliente =  ingresardni();
     let nuevosaldo = parseInt(prompt("Ingrese nuevo saldo"));
     for (let Clientes of clientes) {
-        if(Clientes.dni == dni) {
+        if(Clientes.dni == cliente.dni) {
             Clientes.sumarsaldo(nuevosaldo);
         }
     }
@@ -133,4 +129,12 @@ function buscarpelicula(){
 
 function salir() {
     alert("Gracias por utilizar el sistema de gestion de PeliculasYa");
+}
+
+
+function ingresardni(){
+
+    let dni = prompt("Ingrese el DNI del cliente a buscar: ");
+    let cliente = clientes.find(cliente => cliente.dni === dni);
+    return cliente;
 }
