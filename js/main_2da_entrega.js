@@ -121,11 +121,11 @@ function sumarsaldo() {
 
 function buscarpelicula(){
     let buscar = prompt("Ingrese el id de la pelicula");
-    const buscado = ListaPeliculas.find(Peliculas => Peliculas.id == buscar); 
+    const pelicula = ListaPeliculas.find(Peliculas => Peliculas.id == buscar); 
     // alert("La pelicula es: " + buscado);
     // console.log("La pelicula es: " + buscado.titulo);
     // console.log("Quedan: " + buscado.stock + "peliculas");
-    alert("La pelicula seleccionada es: "+ buscado.titulo + "\nQuedan disponibles: "+buscado.stock + "unidades" + "\nLa pelicula seleccionada cuesta: " +buscado.precio);
+    alert("La pelicula seleccionada es: "+ pelicula.titulo + "\nQuedan disponibles: "+pelicula.stock + "unidades" + "\nLa pelicula seleccionada cuesta: " +pelicula.precio);
     menu();
 }
 
