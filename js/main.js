@@ -34,7 +34,7 @@ const verServicios = () => {
                 <div class="card-body">
                 <h5 class="card-title"> ${servicio.nombre} </h5>
                 <p class="card-text"> ${servicio.precio} </p>
-                <button class="btn boton" id="add${servicio.id}"> Agregar al Carrito </button>
+                <button class="btn boton" id="add${servicio.id}"> Seleccionar Servicio </button>
                 </div>
             </div>
         `
@@ -67,7 +67,7 @@ const mostrarPresupuesto = () => {
                 <h5 class="card-title"> ${servicio.nombre} </h5>
                 <p class="card-text"> ${servicio.precio} </p>
                 <p class="card-text"> ${servicio.cantidad} </p>
-                <button class="btn boton" id="delete${servicio.id}"> Eliminar Producto </button>
+                <button class="btn boton" id="delete${servicio.id}"> Eliminar Servicio </button>
                 </div>
             </div>
         `
