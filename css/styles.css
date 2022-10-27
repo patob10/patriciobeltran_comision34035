@@ -1,0 +1,19 @@
+.container{
+    background-color: black;
+    color: burlywood;
+}
+
+.img__servicio {
+    width: 150px;
+    height: 200px;
+    object-fit: contain;
+    margin-top: 1rem;
+}
+
+.card {
+    display: flex;
+    align-items: center;
+    margin: 0.5rem;
+}
+
+
