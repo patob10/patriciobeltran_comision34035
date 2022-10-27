@@ -1,9 +1,5 @@
 
-let presupuesto = [];
-
-if(localStorage.getItem("presupuesto")) {
-    presupuesto = JSON.parse(localStorage.getItem("presupuesto"));
-}
+let presupuesto = localStorage.getItem("presupuesto") ? JSON.parse(localStorage.getItem("presupuesto")) : [];
 
 class Servicio {
     constructor(nombre, precio, img, id) {
