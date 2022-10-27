@@ -25,7 +25,7 @@ const verServicios = () => {
         const card = document.createElement("div");
         card.classList.add("col-xl-6", "col-md-6", "col-xs-12");
         card.innerHTML = `
-            <div class="card">
+        <div class="card border-dark mb-3" style="max-width: 18rem;">
                 <img src="${servicio.img}" class="card-img-top img__servicio" alt="${servicio.nombre}">
                 <div class="card-body">
                 <h5 class="card-title"> ${servicio.nombre} </h5>
@@ -57,7 +57,7 @@ const mostrarPresupuesto = () => {
         const card = document.createElement("div");
         card.classList.add("col-xl-3", "col-md-6", "col-xs-12");
         card.innerHTML = `
-            <div class="card">
+        <div class="card border-dark mb-3"">
                 <img src="${servicio.img}" class="card-img-top img__servicio" alt="${servicio.nombre}">
                 <div class="card-body">
                 <h5 class="card-title"> ${servicio.nombre} </h5>
